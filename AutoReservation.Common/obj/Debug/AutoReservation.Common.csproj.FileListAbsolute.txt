@@ -1,0 +1,6 @@
+C:\Users\Dominik\Documents\MsTe\AutoReservation.Common\bin\Debug\AutoReservation.Common.dll.config
+C:\Users\Dominik\Documents\MsTe\AutoReservation.Common\bin\Debug\AutoReservation.Common.dll
+C:\Users\Dominik\Documents\MsTe\AutoReservation.Common\bin\Debug\AutoReservation.Common.pdb
+C:\Users\Dominik\Documents\MsTe\AutoReservation.Common\obj\Debug\AutoReservation.Common.csprojResolveAssemblyReference.cache
+C:\Users\Dominik\Documents\MsTe\AutoReservation.Common\obj\Debug\AutoReservation.Common.dll
+C:\Users\Dominik\Documents\MsTe\AutoReservation.Common\obj\Debug\AutoReservation.Common.pdb
