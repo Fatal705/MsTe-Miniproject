@@ -1,9 +1,11 @@
 ﻿using AutoReservation.Common.Extensions;
 using AutoReservation.Common.DataTransferObjects.Core;
 using System.Text;
+using System.Runtime.Serialization;
 
 namespace AutoReservation.Common.DataTransferObjects
 {
+    [DataContract]
     public class AutoDto : DtoBase<AutoDto>
     {
         private int id;

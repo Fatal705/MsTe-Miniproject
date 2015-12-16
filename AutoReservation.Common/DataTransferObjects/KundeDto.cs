@@ -2,9 +2,11 @@
 using AutoReservation.Common.DataTransferObjects.Core;
 using System.Text;
 using System;
+using System.Runtime.Serialization;
 
 namespace AutoReservation.Common.DataTransferObjects
 {
+    [DataContract]
     public class KundeDto : DtoBase<KundeDto>
     {
         private int id;
