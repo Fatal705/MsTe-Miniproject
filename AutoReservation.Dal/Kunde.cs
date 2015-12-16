@@ -12,21 +12,20 @@ namespace AutoReservation.Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Autos
+    public partial class Kunde
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Autos()
+        public Kunde()
         {
-            this.Reservations = new HashSet<Reservationen>();
+            this.Reservations = new HashSet<Reservation>();
         }
     
         public int Id { get; set; }
-        public string Marke { get; set; }
-        public int AutoKlasse { get; set; }
-        public int Tagestarif { get; set; }
-        public Nullable<int> Basistarif { get; set; }
+        public string Nachname { get; set; }
+        public string Vorname { get; set; }
+        public System.DateTime Geburtsdatum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reservationen> Reservations { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }
