@@ -47,7 +47,7 @@ namespace AutoReservation.Ui.Testing
             vm.Init();
 
             Assert.IsTrue(vm.ServiceExists);
-            Assert.IsTrue(1 == vm.Reservationen.Count);
+            Assert.IsTrue(3 == vm.Reservationen.Count);
         }
     }
 }

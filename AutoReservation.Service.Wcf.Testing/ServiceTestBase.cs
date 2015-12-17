@@ -37,7 +37,7 @@ namespace AutoReservation.Service.Wcf.Testing
         public void Test_GetReservationen()
         {
             List<ReservationDto> reservation = Target.GetAllReservationen();
-            Assert.AreEqual(reservation.Count, 1);
+            Assert.AreEqual(reservation.Count, 3);
         }
 
         [TestMethod]
@@ -141,49 +141,68 @@ namespace AutoReservation.Service.Wcf.Testing
             reservation.Von = DateTime.Now;
             Target.UpdateReservation(reservation, original);
             ReservationDto modified = Target.GetReservationById(1);
-            Assert.AreEqual(reservation.Von, modified.Von);
+            Assert.AreEqual<DateTime>(reservation.Von, modified.Von);
         }
 
         [TestMethod]
         [ExpectedException(typeof(FaultException<AutoDto>))]
         public void Test_UpdateAutoWithOptimisticConcurrency()
         {
-            AutoDto auto1 = Target.GetAutoById(1);
-            AutoDto auto2 = Target.GetAutoById(1);
-            AutoDto original = Target.GetAutoById(1);
-            auto1.Marke = "Audi R8";
-            auto2.Marke = "BMW 1er";
-            Target.UpdateAuto(auto1, original);
-            Target.UpdateAuto(auto2, original);
-            Assert.Fail();
+            try
+            {
+                AutoDto auto1 = Target.GetAutoById(1);
+                AutoDto auto2 = Target.GetAutoById(1);
+                AutoDto original = Target.GetAutoById(1);
+                auto1.Marke = "Audi R8";
+                auto2.Marke = "BMW 1er";
+                Target.UpdateAuto(auto1, original);
+                Target.UpdateAuto(auto2, original);
+                Assert.Fail();
+            }
+            catch (FaultException<AutoDto>)
+            {
+
+            }
         }
 
         [TestMethod]
         [ExpectedException(typeof(FaultException<KundeDto>))]
         public void Test_UpdateKundeWithOptimisticConcurrency()
         {
-            KundeDto kunde1 = Target.GetKundeById(1);
-            KundeDto kunde2 = Target.GetKundeById(1);
-            KundeDto original = Target.GetKundeById(1);
-            kunde1.Nachname = "Thamm";
-            kunde2.Nachname = "Ryser";
-            Target.UpdateKunde(kunde1, original);
-            Target.UpdateKunde(kunde2, original);
-            Assert.Fail();
+            try {
+                KundeDto kunde1 = Target.GetKundeById(1);
+                KundeDto kunde2 = Target.GetKundeById(1);
+                KundeDto original = Target.GetKundeById(1);
+                kunde1.Nachname = "Thamm";
+                kunde2.Nachname = "Ryser";
+                Target.UpdateKunde(kunde1, original);
+                Target.UpdateKunde(kunde2, original);
+                Assert.Fail();
+            }
+            catch (FaultException<KundeDto>)
+            {
+
+            }
         }
 
         [TestMethod]
         [ExpectedException(typeof(FaultException<ReservationDto>))]
         public void Test_UpdateReservationWithOptimisticConcurrency()
         {
-            ReservationDto reservation1 = Target.GetReservationById(1);
-            ReservationDto reservation2 = Target.GetReservationById(1);
-            ReservationDto original = Target.GetReservationById(1);
-            reservation1.Bis = DateTime.Now.AddDays(1);
-            reservation2.Bis = DateTime.Now.AddDays(2);
-            Target.UpdateReservation(reservation1, original);
-            Target.UpdateReservation(reservation2, original);
-            Assert.Fail();
+            try { 
+                ReservationDto reservation1 = Target.GetReservationById(1);
+                ReservationDto reservation2 = Target.GetReservationById(1);
+                ReservationDto original = Target.GetReservationById(1);
+                reservation1.Bis = DateTime.Today.AddDays(1);
+                reservation2.Bis = DateTime.Today.AddDays(2);
+                Target.UpdateReservation(reservation1, original);
+                Target.UpdateReservation(reservation2, original);
+                Assert.Fail();
+            }
+            catch (FaultException<ReservationDto>)
+            {
+
+            }
         }
 
         [TestMethod]
