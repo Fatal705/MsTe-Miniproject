@@ -4,6 +4,8 @@ using System.Diagnostics;
 using AutoReservation.Common.DataTransferObjects;
 using System.Collections.Generic;
 using AutoReservation.BusinessLayer;
+using AutoReservation.Dal;
+using System.ServiceModel;
 
 namespace AutoReservation.Service.Wcf
 {
@@ -21,22 +23,22 @@ namespace AutoReservation.Service.Wcf
             Console.WriteLine("Calling: " + new StackTrace().GetFrame(1).GetMethod().Name);
         }
 
-        public AutoDto DeleteAuto(AutoDto auto)
+        public void DeleteAuto(AutoDto auto)
         {
             WriteActualMethod();
-            return business.DeleteAuto(auto.ConvertToEntity()).ConvertToDto();  
+            business.DeleteAuto(auto.ConvertToEntity());  
         }
 
-        public KundeDto DeleteKunde(KundeDto kunde)
+        public void DeleteKunde(KundeDto kunde)
         {
             WriteActualMethod();
-            return business.DeleteKunde(kunde.ConvertToEntity()).ConvertToDto();
+            business.DeleteKunde(kunde.ConvertToEntity());
         }
 
-        public ReservationDto DeleteReservation(ReservationDto reservation)
+        public void DeleteReservation(ReservationDto reservation)
         {
             WriteActualMethod();
-            return business.DeleteReservation(reservation.ConvertToEntity()).ConvertToDto();
+            business.DeleteReservation(reservation.ConvertToEntity());
         }
 
         public List<AutoDto> GetAllAutos()
@@ -75,40 +77,61 @@ namespace AutoReservation.Service.Wcf
             return business.GetReservationById(id).ConvertToDto();
         }
 
-        public AutoDto InsertAuto(AutoDto auto)
+        public void InsertAuto(AutoDto auto)
         {
             WriteActualMethod();
-            return business.InsertAuto(auto.ConvertToEntity()).ConvertToDto();
+            business.InsertAuto(auto.ConvertToEntity());
         }
 
-        public KundeDto InsertKunde(KundeDto kunde)
+        public void InsertKunde(KundeDto kunde)
         {
             WriteActualMethod();
-            return business.InsertKunde(kunde.ConvertToEntity()).ConvertToDto();
+            business.InsertKunde(kunde.ConvertToEntity());
         }
 
-        public ReservationDto InsertReservation(ReservationDto reservation)
+        public void InsertReservation(ReservationDto reservation)
         {
             WriteActualMethod();
-            return business.InsertReservation(reservation.ConvertToEntity()).ConvertToDto();
+            business.InsertReservation(reservation.ConvertToEntity());
         }
 
-        public AutoDto UpdateAuto(AutoDto modified, AutoDto original)
+        public void UpdateAuto(AutoDto modified, AutoDto original)
         {
             WriteActualMethod();
-            return business.UpdateAuto(modified.ConvertToEntity(), original.ConvertToEntity()).ConvertToDto();
+            try
+            {
+                business.UpdateAuto(modified.ConvertToEntity(), original.ConvertToEntity());
+            }
+            catch (LocalOptimisticConcurrencyException<Auto> e)
+            {
+                throw new FaultException<AutoDto>(e.MergedEntity.ConvertToDto());
+            }
         }
 
-        public KundeDto UpdateKunde(KundeDto modified, KundeDto original)
+        public void UpdateKunde(KundeDto modified, KundeDto original)
         {
             WriteActualMethod();
-            return business.UpdateKunde(modified.ConvertToEntity(), original.ConvertToEntity()).ConvertToDto();
+            try
+            {
+                business.UpdateKunde(modified.ConvertToEntity(), original.ConvertToEntity());
+            }
+            catch (LocalOptimisticConcurrencyException<Kunde> e)
+            {
+                throw new FaultException<KundeDto>(e.MergedEntity.ConvertToDto());
+            }
         }
 
-        public ReservationDto UpdateReservation(ReservationDto modified, ReservationDto original)
+        public void UpdateReservation(ReservationDto modified, ReservationDto original)
         {
             WriteActualMethod();
-            return business.UpdateReservation(modified.ConvertToEntity(), original.ConvertToEntity()).ConvertToDto();
+            try
+            {
+                business.UpdateReservation(modified.ConvertToEntity(), original.ConvertToEntity());
+            }
+            catch (LocalOptimisticConcurrencyException<Reservation> e)
+            {
+                throw new FaultException<ReservationDto>(e.MergedEntity.ConvertToDto());
+            }
         }
     }
 }

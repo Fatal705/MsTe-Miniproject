@@ -1,0 +1,11 @@
+K:\MsTe\AutoReservation.TestEnvironment\bin\Debug\AutoReservation.TestEnvironment.dll
+K:\MsTe\AutoReservation.TestEnvironment\bin\Debug\AutoReservation.TestEnvironment.pdb
+K:\MsTe\AutoReservation.TestEnvironment\bin\Debug\AutoReservation.Dal.dll
+K:\MsTe\AutoReservation.TestEnvironment\bin\Debug\EntityFramework.dll
+K:\MsTe\AutoReservation.TestEnvironment\bin\Debug\EntityFramework.SqlServer.dll
+K:\MsTe\AutoReservation.TestEnvironment\bin\Debug\AutoReservation.Dal.pdb
+K:\MsTe\AutoReservation.TestEnvironment\bin\Debug\EntityFramework.xml
+K:\MsTe\AutoReservation.TestEnvironment\bin\Debug\EntityFramework.SqlServer.xml
+K:\MsTe\AutoReservation.TestEnvironment\obj\Debug\AutoReservation.TestEnvironment.csprojResolveAssemblyReference.cache
+K:\MsTe\AutoReservation.TestEnvironment\obj\Debug\AutoReservation.TestEnvironment.dll
+K:\MsTe\AutoReservation.TestEnvironment\obj\Debug\AutoReservation.TestEnvironment.pdb

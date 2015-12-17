@@ -1,0 +1,16 @@
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\AutoReservation.Service.Wcf.dll.config
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\AutoReservation.Service.Wcf.dll
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\AutoReservation.Service.Wcf.pdb
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\AutoReservation.BusinessLayer.dll
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\AutoReservation.Common.dll
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\AutoReservation.Dal.dll
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\EntityFramework.dll
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\EntityFramework.SqlServer.dll
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\AutoReservation.BusinessLayer.pdb
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\AutoReservation.Common.pdb
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\AutoReservation.Dal.pdb
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\EntityFramework.xml
+K:\MsTe\AutoReservation.Service.Wcf\bin\Debug\EntityFramework.SqlServer.xml
+K:\MsTe\AutoReservation.Service.Wcf\obj\Debug\AutoReservation.Service.Wcf.csprojResolveAssemblyReference.cache
+K:\MsTe\AutoReservation.Service.Wcf\obj\Debug\AutoReservation.Service.Wcf.dll
+K:\MsTe\AutoReservation.Service.Wcf\obj\Debug\AutoReservation.Service.Wcf.pdb

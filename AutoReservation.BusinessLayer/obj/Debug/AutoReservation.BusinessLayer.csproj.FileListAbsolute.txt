@@ -1,0 +1,11 @@
+K:\MsTe\AutoReservation.BusinessLayer\bin\Debug\AutoReservation.BusinessLayer.dll
+K:\MsTe\AutoReservation.BusinessLayer\bin\Debug\AutoReservation.BusinessLayer.pdb
+K:\MsTe\AutoReservation.BusinessLayer\bin\Debug\AutoReservation.Dal.dll
+K:\MsTe\AutoReservation.BusinessLayer\bin\Debug\EntityFramework.dll
+K:\MsTe\AutoReservation.BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+K:\MsTe\AutoReservation.BusinessLayer\bin\Debug\AutoReservation.Dal.pdb
+K:\MsTe\AutoReservation.BusinessLayer\bin\Debug\EntityFramework.xml
+K:\MsTe\AutoReservation.BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+K:\MsTe\AutoReservation.BusinessLayer\obj\Debug\AutoReservation.BusinessLayer.csprojResolveAssemblyReference.cache
+K:\MsTe\AutoReservation.BusinessLayer\obj\Debug\AutoReservation.BusinessLayer.dll
+K:\MsTe\AutoReservation.BusinessLayer\obj\Debug\AutoReservation.BusinessLayer.pdb

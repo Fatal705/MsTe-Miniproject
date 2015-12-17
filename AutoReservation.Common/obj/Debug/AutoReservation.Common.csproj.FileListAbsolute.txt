@@ -4,3 +4,13 @@ C:\Users\Dominik\Documents\MsTe\AutoReservation.Common\bin\Debug\AutoReservation
 C:\Users\Dominik\Documents\MsTe\AutoReservation.Common\obj\Debug\AutoReservation.Common.csprojResolveAssemblyReference.cache
 C:\Users\Dominik\Documents\MsTe\AutoReservation.Common\obj\Debug\AutoReservation.Common.dll
 C:\Users\Dominik\Documents\MsTe\AutoReservation.Common\obj\Debug\AutoReservation.Common.pdb
+K:\MsTe\AutoReservation.Common\bin\Debug\AutoReservation.Common.dll.config
+K:\MsTe\AutoReservation.Common\bin\Debug\AutoReservation.Common.dll
+K:\MsTe\AutoReservation.Common\bin\Debug\AutoReservation.Common.pdb
+K:\MsTe\AutoReservation.Common\bin\Debug\EntityFramework.dll
+K:\MsTe\AutoReservation.Common\bin\Debug\EntityFramework.SqlServer.dll
+K:\MsTe\AutoReservation.Common\bin\Debug\EntityFramework.xml
+K:\MsTe\AutoReservation.Common\bin\Debug\EntityFramework.SqlServer.xml
+K:\MsTe\AutoReservation.Common\obj\Debug\AutoReservation.Common.csprojResolveAssemblyReference.cache
+K:\MsTe\AutoReservation.Common\obj\Debug\AutoReservation.Common.dll
+K:\MsTe\AutoReservation.Common\obj\Debug\AutoReservation.Common.pdb

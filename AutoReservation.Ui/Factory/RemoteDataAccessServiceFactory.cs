@@ -13,7 +13,8 @@ namespace AutoReservation.Ui.Factory
     {
         public IAutoReservationService GetService()
         {
-            return (IAutoReservationService) new ServiceHost(typeof(AutoReservationService));
+            ChannelFactory<IAutoReservationService> channelFactory = new ChannelFactory<IAutoReservationService>("AutoReservationService");
+            return channelFactory.CreateChannel();
         }
     }
 }

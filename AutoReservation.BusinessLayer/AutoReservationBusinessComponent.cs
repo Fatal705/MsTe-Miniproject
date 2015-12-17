@@ -1,6 +1,8 @@
 ﻿using AutoReservation.Dal;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity.Infrastructure;
+using System.Linq;
 
 namespace AutoReservation.BusinessLayer
 {
@@ -13,116 +15,168 @@ namespace AutoReservation.BusinessLayer
             this.context = new AutoReservationEntities();
         }
 
-        public Collection<Auto> GetAllAutos()
+        public List<Auto> GetAllAutos()
         {
-            return context.Autos.Local;
+            using (var context = new AutoReservationEntities())
+            {
+                return context.Autos.ToList();
+            }
         }
 
         public Auto GetAutoById(int id)
         {
-            return context.Autos.Find(id);
+            using (var context = new AutoReservationEntities())
+            {
+                return context.Autos.Where(a => a.Id == id).FirstOrDefault();
+            }
         }
 
-        public Auto InsertAuto(Auto auto)
+        public void InsertAuto(Auto auto)
         {
-            return context.Autos.Add(auto);
+            using (var context = new AutoReservationEntities())
+            {
+                context.Autos.Add(auto);
+                context.SaveChanges();
+            }
         }
 
-        public Auto UpdateAuto(Auto modified, Auto original)
+        public void UpdateAuto(Auto modified, Auto original)
         {
-            context.Autos.Attach(original);
-            try
+            using (var context = new AutoReservationEntities())
             {
-                context.Entry(original).CurrentValues.SetValues(modified);
+                try
+                {
+                    context.Autos.Attach(original);
+                    context.Entry(original).CurrentValues.SetValues(modified);
+                    context.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    HandleDbConcurrencyException<Auto>(context, original);
+                }
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                HandleDbConcurrencyException<Auto>(context, original);
-            }
-            return modified;
               
         }
 
-        public Auto DeleteAuto(Auto auto)
+        public void DeleteAuto(Auto auto)
         {
-            context.Autos.Attach(auto);
-            return context.Autos.Remove(auto);
+            using (var context = new AutoReservationEntities())
+            {
+                context.Autos.Attach(auto);
+                context.Autos.Remove(auto);
+                context.SaveChanges();
+            }
         }
 
 
 
-        public Collection<Kunde> GetAllKunden()
+        public List<Kunde> GetAllKunden()
         {
-            return context.Kunden.Local;
+            using (var context = new AutoReservationEntities())
+            {
+                return context.Kunden.ToList();
+            }
         }
 
         public Kunde GetKundeById(int id)
         {
-            return context.Kunden.Find(id);
-        }
-
-        public Kunde InsertKunde(Kunde kunde)
-        {
-            return context.Kunden.Add(kunde);
-        }
-
-        public Kunde UpdateKunde(Kunde modified, Kunde original)
-        {
-            context.Kunden.Attach(original);
-            try
+            using (var context = new AutoReservationEntities())
             {
-                context.Entry(original).CurrentValues.SetValues(modified);
+                return context.Kunden.Where(a => a.Id == id).FirstOrDefault();
             }
-            catch (DbUpdateConcurrencyException)
+        }
+
+        public void InsertKunde(Kunde kunde)
+        {
+            using (var context = new AutoReservationEntities())
             {
-                HandleDbConcurrencyException<Kunde>(context, original);
+                context.Kunden.Add(kunde);
+                context.SaveChanges();
             }
-            return modified;
+        }
+
+        public void UpdateKunde(Kunde modified, Kunde original)
+        {
+            using (var context = new AutoReservationEntities())
+            {
+                try
+                {
+                    context.Kunden.Attach(original);
+                    context.Entry(original).CurrentValues.SetValues(modified);
+                    context.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    HandleDbConcurrencyException<Kunde>(context, original);
+                }
+            }
 
         }
 
-        public Kunde DeleteKunde(Kunde kunde)
+        public void DeleteKunde(Kunde kunde)
         {
-            context.Kunden.Attach(kunde);
-            return context.Kunden.Remove(kunde);
+            using (var context = new AutoReservationEntities())
+            {
+                context.Kunden.Attach(kunde);
+                context.Kunden.Remove(kunde);
+                context.SaveChanges();
+            }
         }
 
 
 
-        public Collection<Reservation> GetAllReservationen()
+        public List<Reservation> GetAllReservationen()
         {
-            return context.Reservationen.Local;
+            using (var context = new AutoReservationEntities())
+            {
+                return context.Reservationen.Include("Auto").Include("Kunde").ToList();
+            }
         }
 
         public Reservation GetReservationById(int id)
         {
-            return context.Reservationen.Find(id);
-        }
-
-        public Reservation InsertReservation(Reservation reservation)
-        {
-            return context.Reservationen.Add(reservation);
-        }
-
-        public Reservation UpdateReservation(Reservation modified, Reservation original)
-        {
-            context.Reservationen.Attach(original);
-            try
+            using (var context = new AutoReservationEntities())
             {
-                context.Entry(original).CurrentValues.SetValues(modified);
+                return context.Reservationen.Include("Auto").Include("Kunde").Where(a => a.ReservationNr == id).FirstOrDefault(); ;
             }
-            catch (DbUpdateConcurrencyException)
+        }
+
+        public void InsertReservation(Reservation reservation)
+        {
+            using (var context = new AutoReservationEntities())
             {
-                HandleDbConcurrencyException<Reservation>(context, original);
+                context.Reservationen.Add(reservation);
+                context.SaveChanges();
             }
-            return modified;
+        }
+
+        public void UpdateReservation(Reservation modified, Reservation original)
+        {
+            using (var context = new AutoReservationEntities())
+            {
+                try
+                {
+                    context.Reservationen.Attach(original);
+                    context.Entry(original).CurrentValues.SetValues(modified);
+                    context.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    HandleDbConcurrencyException<Reservation>(context, original);
+                }
+                
+            }
 
         }
 
-        public Reservation DeleteReservation(Reservation reservation)
+        public void DeleteReservation(Reservation reservation)
         {
-            context.Reservationen.Attach(reservation);
-            return context.Reservationen.Remove(reservation);
+            using (var context = new AutoReservationEntities())
+            {
+                context.Reservationen.Attach(reservation);
+                context.Reservationen.Remove(reservation);
+                context.SaveChanges();
+            }
         }
 
         private static void HandleDbConcurrencyException<T>(AutoReservationEntities context, T original) where T : class

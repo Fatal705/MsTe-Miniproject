@@ -1,0 +1,10 @@
+K:\MsTe\AutoReservation.Dal\bin\Debug\AutoReservation.Dal.dll.config
+K:\MsTe\AutoReservation.Dal\bin\Debug\AutoReservation.Dal.dll
+K:\MsTe\AutoReservation.Dal\bin\Debug\AutoReservation.Dal.pdb
+K:\MsTe\AutoReservation.Dal\bin\Debug\EntityFramework.dll
+K:\MsTe\AutoReservation.Dal\bin\Debug\EntityFramework.SqlServer.dll
+K:\MsTe\AutoReservation.Dal\bin\Debug\EntityFramework.xml
+K:\MsTe\AutoReservation.Dal\bin\Debug\EntityFramework.SqlServer.xml
+K:\MsTe\AutoReservation.Dal\obj\Debug\AutoReservation.Dal.csprojResolveAssemblyReference.cache
+K:\MsTe\AutoReservation.Dal\obj\Debug\AutoReservation.Dal.dll
+K:\MsTe\AutoReservation.Dal\obj\Debug\AutoReservation.Dal.pdb
